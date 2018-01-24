@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright 2018 Cloudsoft Corporation Ltd.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.cloudsoft.extras</groupId>
+    <artifactId>location-customizer</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Location Customizer</name>
+    <description>Location Customizer</description>
+    <packaging>bundle</packaging>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <organization>
+        <name>Cloudsoft Corporation Ltd.</name>
+        <url>http://cloudsoft.io</url>
+    </organization>
+    <scm>
+        <connection>scm:git:https://github.com/cloudsoft/location-customizer.git</connection>
+        <developerConnection>scm:git:https://github.com/cloudsoft/location-customizer.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/cloudsoft/location-customizer</url>
+    </scm>
+
+    <properties>
+        <brooklyn.version>0.12.0</brooklyn.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.brooklyn</groupId>
+            <artifactId>brooklyn-locations-jclouds</artifactId>
+            <version>${brooklyn.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Import-Package>
+                            com.google.common.reflect;version="[18.0,19)",
+                            org.apache.brooklyn.api.sensor;version="[0.12,2)",
+                            org.apache.brooklyn.config;version="[0.12,2)",
+                            org.apache.brooklyn.core.config;version="[0.12,2)",
+                            org.apache.brooklyn.core.entity;version="[0.12,2)",
+                            org.apache.brooklyn.core.location;version="[0.12,2)",
+                            org.apache.brooklyn.core.sensor;version="[0.12,2)",
+                            org.apache.brooklyn.location.jclouds;version="[0.12,2)",
+                            org.apache.brooklyn.util.core.config;version="[0.12,2)",
+                            org.jclouds.compute.domain;version="[2.0,3)",
+                            org.slf4j;version="[1.6,2)"                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
