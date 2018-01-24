@@ -22,7 +22,7 @@
 
     <groupId>io.cloudsoft.extras</groupId>
     <artifactId>location-customizer</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Location Customizer</name>
     <description>Location Customizer</description>
     <packaging>bundle</packaging>
